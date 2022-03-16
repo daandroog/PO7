@@ -1,0 +1,106 @@
+{
+  "intents": [
+    {
+      "tag": "groeten",
+      "patterns": [
+        "Hi",
+        "Hey",
+        "Hoe gaat het",
+        "Is daar iemand?",
+        "Hallo",
+        "Goede dag"
+      ],
+      "responses": [
+        "Hey :-)",
+        "Hallo, leuk dat je er bent!",
+        "Hallo, wat kan ik voor je doen?",
+        "Hoi, hoe kan ik je helpen?"
+      ]
+    },
+    {
+      "tag": "totziens",
+      "patterns": ["Bye", "Tot ziens", "Doei", "Later", "Gedag"],
+      "responses": [
+        "Tot ziens, hopelijk heb ik je kunnen helpen.",
+        "Een fijne dag nog.",
+        "Doei! Hopelijk tot snel."
+      ]
+    },
+    {
+      "tag": "danken",
+      "patterns": ["Thanks", "Thank you", "Dankjewel", "Dank", "Danku"],
+      "responses": ["Blij om je te kunnen helpen!", "Geen probleem.", "Jij bedankt."]
+    },
+    {
+      "tag": "items",
+      "patterns": [
+        "Welke producten verkopen jullie?",
+        "Wat voor een soort producten verkopen jullie?",
+        "Wat verkopen jullie?"
+      ],
+      "responses": [
+        "We verkopen van alles in de kantine. Kijk op onze website voor het actuele aanbod.",
+        "We hebben een breed aanbod dat veel varieërt, bekijk de website voor het acutele aanbod."
+      ]
+    },
+    {
+      "tag": "betalingen",
+      "patterns": [
+        "Accepteren jullie Creditcard?",
+        "Kan ik met Mastercard betalen?",
+        "Gebruiken jullie ook Paypal?",
+        "Kun je alleen met cash betalen?"
+      ],
+      "responses": [
+        "We accepteren cash en kuario.",
+        "We gebruiken cash en kuario."
+      ]
+    },
+    {
+      "tag": "bezorging",
+      "patterns": [
+        "Hoe lang duurt bezorging?",
+        "Hoe lang duurt verzenden?",
+        "Wanneer ontvang ik mijn bestelling?"
+      ],
+      "responses": [
+        "Afhalen kan op het gekozen tijdstip van de bestelling. Wij doen niet aan bezorgen."
+      ]
+    },
+    {
+      "tag": "grappig",
+      "patterns": [
+        "Vertel men een mop.",
+        "Zeg eens wat grappigs.",
+        "Weet jij een mop?"
+      ],
+      "responses": [
+        "Liesje, heb je de bloemen water gegeven?' vraagt haar moeder.' 'Nee,' zegt Liesje, 'dat had de hond al gedaan!",
+        "Er staan twee mandarijnen bij de rivier. Vraagt de een: Is dit de Maas? Zegt de ander: Nee man, de Rijn."
+      ]
+    },
+    {
+      "tag": "openingstijden",
+      "patterns": [
+        "Tot hoelaat zijn jullie open?",
+        "Wat zijn jullie openingstijden?",
+        "'Tot wanneer kan ik mijn bestelling ophalen?'"
+      ],
+      "responses": [
+        "Wij zijn elke werkdag van 08:00 tot 17:00 open, voor uitzondering moet je de website bezoeken.",
+        "Van 08:00 tot 17:00."
+      ]
+    },
+    {
+      "tag": "contact",
+      "patterns": [
+        "Hoe kan ik jullie bereiken?",
+        "Hoe kan ik iemand spreken?",
+        "Kan ik ook bellen?"
+      ],
+      "responses": [
+        "Je kan ons bereiken door te bellen, mailen of even langs te kantine te gaan. Het nummer is: 06-12345678 en het emailadres: test@gmail.com."
+      ]
+    }
+  ]
+}
