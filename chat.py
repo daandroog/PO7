@@ -12,6 +12,7 @@ with open('intents.json', 'r') as json_data:
 
 FILE = "data.pth"
 data = torch.load(FILE)
+#dit is de data waar de woorden in staan, zonder deze data kan de chatbot de woorden niet herkennen en dus niet correct reageren.
 
 input_size = data["input_size"]
 hidden_size = data["hidden_size"]
@@ -27,7 +28,7 @@ model.eval()
 bot_name = "Hulp"
 print("Laten we gaan chatten! (type 'Tot ziens!' to exit)")
 while True:
-    # sentence = "do you use credit cards?"
+    # zin = "Kan ik met de creditcard betalen?"
     sentence = input("Jij: ")
     if sentence == "Tot ziens!":
         break

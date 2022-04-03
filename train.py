@@ -15,23 +15,23 @@ with open('intents.json', 'r') as f:
 all_words = []
 tags = []
 xy = []
-# loop through each sentence in our intents patterns
+# loop door elke zin in onze intentiepatronen
 for intent in intents['intents']:
     tag = intent['tag']
-    # add to tag list
+    # voegt aan de taglijst toe
     tags.append(tag)
     for pattern in intent['patterns']:
-        # tokenize each word in the sentence
+        # symbolyseert elk woord in de zin
         w = tokenize(pattern)
-        # add to our words list
+        # voegt het woord aan de woordenlijst toe
         all_words.extend(w)
-        # add to xy pair
+        # voegt aan het xy paar toe
         xy.append((w, tag))
 
-# stem and lower each word
+# beperkt de invloed van woorden
 ignore_words = ['?', '.', '!']
 all_words = [stem(w) for w in all_words if w not in ignore_words]
-# remove duplicates and sort
+# verwijdert duplicaten en sorteert
 all_words = sorted(set(all_words))
 tags = sorted(set(tags))
 
@@ -39,14 +39,14 @@ print(len(xy), "patterns")
 print(len(tags), "tags:", tags)
 print(len(all_words), "unique stemmed words:", all_words)
 
-# create training data
+# maakt de trainingsdata
 X_train = []
 y_train = []
 for (pattern_sentence, tag) in xy:
-    # X: bag of words for each pattern_sentence
+    # X: groep woorden voor elk pattern_sentence
     bag = bag_of_words(pattern_sentence, all_words)
     X_train.append(bag)
-    # y: PyTorch CrossEntropyLoss needs only class labels, not one-hot
+    # y: PyTorch CrossEntropyLoss heeft alleen labels nodig, geen one-hot
     label = tags.index(tag)
     y_train.append(label)
 
@@ -69,11 +69,11 @@ class ChatDataset(Dataset):
         self.x_data = X_train
         self.y_data = y_train
 
-    # support indexing such that dataset[i] can be used to get i-th sample
+    # ondersteuning van indexering zodat dataset [i] kan worden gebruikt om i-th sample te krijgen
     def __getitem__(self, index):
         return self.x_data[index], self.y_data[index]
 
-    # we can call len(dataset) to return the size
+    # we kunnen len (dataset) gebruiken om de grootte te beperken
     def __len__(self):
         return self.n_samples
 
@@ -87,23 +87,23 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 model = NeuralNet(input_size, hidden_size, output_size).to(device)
 
-# Loss and optimizer
+# verliezen en optimaliseren
 criterion = nn.CrossEntropyLoss()
 optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 
-# Train the model
+# traint het model
 for epoch in range(num_epochs):
     for (words, labels) in train_loader:
         words = words.to(device)
         labels = labels.to(dtype=torch.long).to(device)
         
-        # Forward pass
+        # voorwaartse reactie
         outputs = model(words)
-        # if y would be one-hot, we must apply
+        # als y one-hot zou zijn, moeten we het toepassen
         # labels = torch.max(labels, 1)[1]
         loss = criterion(outputs, labels)
         
-        # Backward and optimize
+        # terug en optimaliseren
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()

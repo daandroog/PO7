@@ -32,9 +32,9 @@ def bag_of_words(tokenized_sentence, words):
     words = ["hi", "hello", "I", "you", "bye", "thank", "cool"]
     bog   = [  0 ,    1 ,    0 ,   1 ,    0 ,    0 ,      0]
     """
-    # stem each word
+    # remt elk woord
     sentence_words = [stem(word) for word in tokenized_sentence]
-    # initialize bag with 0 for each word
+    # initialiseert een groep worden met 0 voor elk woord
     bag = np.zeros(len(words), dtype=np.float32)
     for idx, w in enumerate(words):
         if w in sentence_words: 
